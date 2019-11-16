@@ -10,12 +10,9 @@ jobs:
       - run:
           name: install dependencies
           command: |
-            sudo python -m venv venv
+            sudo python3 -m venv venv
             . venv/bin/activate
-            pip install -r requirements.txt
-
-      - run:
-          name: run tests
-          command: |
+            python -m pip install requests
+            python -m pip install jsonpath
             python -m unittest discover
 
