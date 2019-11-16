@@ -3,7 +3,7 @@ jobs:
   build:
     working_directory: ~/typicode
     docker:
-      - image: circleci/python:3.6.2
+      - image: circleci/python:2.7.17
 
     steps:
       - checkout
