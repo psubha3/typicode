@@ -12,7 +12,7 @@ jobs:
           command: |
             sudo python3 -m venv venv
             . venv/bin/activate
-            python -m pip install requests
-            python -m pip install jsonpath
+            sudo pip install requests
+            sudo pip install jsonpath
             python -m unittest discover
 
