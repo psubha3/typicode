@@ -1,11 +1,19 @@
-machine:
-  python:
-    version: 2.7
+version: 2
+jobs:
+  build:
+    working_directory: ~/python-ci
 
-dependencies:
-  override:
-    - pip install -r requirements.txt
+    docker:
+      # specify the version you desire here
+      - image: circleci/python:3.6.1
 
-test:
-  override:
-    - python -m unittest discover
+    steps:
+      - checkout
+	  - run:
+          name: Install python test dependencies
+          command: |
+            pip install requests
+            pip install jsonpath
+	  - run:
+          name: Run test application
+          command: python -m unittest discover
