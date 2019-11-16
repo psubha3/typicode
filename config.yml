@@ -1,6 +1,7 @@
 version: 2
 jobs:
   build:
+    working_directory: ~/typicode
     docker:
       - image: circleci/python:3.6.2
 
@@ -12,6 +13,6 @@ jobs:
           command: |
             sudo python3 -m venv venv
             . venv/bin/activate
-            python -m pip install requests
-            python -m pip install jsonpath
-            python -m unittest discover
+            sudo pip install requests
+            sudo pip install jsonpath
+            python -m unittest discover -s tests
