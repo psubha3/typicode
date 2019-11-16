@@ -11,8 +11,6 @@ jobs:
       - run:
           name: install dependencies
           command: |
-            sudo python3 -m venv venv
-            . venv/bin/activate
-            pip install requests
-            pip install jsonpath
+            sudo pip install requests
+            sudo pip install jsonpath
             python3 -m unittest discover -s tests
