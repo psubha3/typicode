@@ -13,4 +13,4 @@ jobs:
           command: |
             sudo pip install requests
             sudo pip install jsonpath
-            python3 -m unittest discover -s tests
+            python -m unittest discover -s tests
