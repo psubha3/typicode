@@ -1,7 +1,7 @@
 version: 2
 jobs:
   build:
-    working_directory: ~/python-ci
+    working_directory: ~/typicode
 
     docker:
       # specify the version you desire here
@@ -9,11 +9,16 @@ jobs:
 
     steps:
       - checkout
-	  - run:
-          name: Install python test dependencies
+      - run: sudo chown -R circleci:circleci /usr/local/bin
+      - run: sudo chown -R circleci:circleci /usr/local/lib/python3.6/site-packages
+      - run:
           command: |
+            sudo pip install pipenv
+            pipenv install
             pip install requests
             pip install jsonpath
-	  - run:
-          name: Run test application
-          command: python -m unittest discover
+      - run:
+          command: | 
+            python -m unittest discover
+      - store_test_results:
+          path: test-results
