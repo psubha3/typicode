@@ -13,7 +13,6 @@ jobs:
           command: |
             sudo pip install requests
             sudo pip install jsonpath
-            sudo pip install html-testRunner
             python tests/runner.py
 
       - store_test_results:
