@@ -13,7 +13,8 @@ jobs:
           command: |
             sudo pip install requests
             sudo pip install jsonpath
-            python -m unittest discover -s tests
+            sudo pip install html-testRunner
+            python tests/runner.py
 
       - store_test_results:
           path: test-results

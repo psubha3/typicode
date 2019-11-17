@@ -1,5 +1,4 @@
 import unittest
-import jsonpath
 
 from create_base_session import SessionWithUrlBase
 from helper import get_response_for_given_path, check_given_value_present_in_list
@@ -13,8 +12,7 @@ class GetUsersMethods(unittest.TestCase):
     def setUp(cls):
         """
         Creates the session for https://jsonplaceholder.typicode.com
-        Assign a value to username
-
+        Assign a value to username, json query path to extract values.
         """
         base_session = SessionWithUrlBase('https://jsonplaceholder.typicode.com')
         cls.session = base_session
@@ -76,7 +74,4 @@ class GetUsersMethods(unittest.TestCase):
     @classmethod
     def tearDown(cls):
         cls.session.close_typicode_session()
-
-if __name__ == "__main__":
-    unittest.main()
 
