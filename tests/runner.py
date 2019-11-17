@@ -1,5 +1,5 @@
 import unittest
-from HTMLTestRunner import HTMLTestRunner
+from HtmlTestRunner import HTMLtestRunner
 
 from test_verify_get_users import GetUsersMethods
 from test_verify_post_of_given_user import UserPostMethods
@@ -12,8 +12,8 @@ suite.addTests(loader.loadTestsFromTestCase(GetUsersMethods))
 suite.addTest(loader.loadTestsFromTestCase(UserPostMethods))
 
 
-#runner = unittest.TextTestRunner(verbosity=3)
-outfile = file('test-results/Report.html', 'w')
+runner = unittest.TextTestRunner(verbosity=3)
+outfile = file('Report.html', 'w')
 runner = HTMLTestRunner(stream=outfile,
                             verbosity=2,
                             title='Typicode api Report',
